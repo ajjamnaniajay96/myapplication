@@ -1,0 +1,25 @@
+<div class="row">
+    <nav class="navbar headerBar" role="navigation">
+        <div class="container-fluid" ng-if="!navBar">
+            <div class="navbar-header whiteColor">
+                <h2>My Application</strong></h2>
+            </div>
+        </div>
+        <div class="container-fluid " ng-if="navBar">
+            <div class="navbar-header whiteColor col-md-2">
+                <h3>Admin Section</h3>
+            </div>
+            <ul id="myNav" class="col-md-10 pull-left  nav navbar-nav listBar">
+                <li> <a href="/#!/members" ng-class="{'active':message=='members'}"> Members </a> </li>
+                <li> <a href="/#!/products" ng-class="{'active':message=='products'}" >  Products </a> </li>
+                <li> <a href="/#!/reporting" ng-class="{'active':message=='reporting'}">  Reporting </a> </li>
+                <li> <a href="/#!/users" ng-class="{'active':message=='users'}"> Users </a> </li>
+               
+                <li ng-controller="HomeCtrl" class="pull-right">
+                    <a ng-click="logout()" role="button"> &nbsp;&nbsp;<span class="glyphicon glyphicon-log-out"></span></a>
+                </li>
+                 <li class="text-capitalize pull-right"><a disabled>{{userName}}</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>

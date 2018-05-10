@@ -1,0 +1,63 @@
+<div class="col-md-12 col-sm-12">
+    <header-main></header-main>
+    <div class="col-md-12 col-sm-12">
+        <div class="pull-left">
+
+            <input id="user" type="text" class="form-control" ng-model="filter" placeholder="Search By Name/Id" /></div>
+        <div class="pull-left leftMar"><input type="button" type="text" class="btn btn-info" value="Search" ng-click="searchRow()" /></div>
+        <div class="pull-right ">
+
+            <input type="button" type="text" class="btn btn-success" value="Create A New Member" ng-click="addRow()" /> </div>
+    </div>
+    <div class="col-md-12 col-sm-12">
+        <md-table-container>
+            <table md-table ng-model="selected">
+                <thead md-head md-order="query.order">
+                    <tr md-row>
+                        <th md-column md-order-by="id"><span>ID</span></th>
+                        <th md-column md-order-by="name"><span>Name</span></th>
+                        <th md-column colspan="4"><span>Sections</span></th>
+                        <th md-column md-order-by="date"><span>Join Date</span></th>
+                        <th md-column md-order-by="status"><span>Status</span></th>
+                        <th md-column></th>
+
+
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row>
+                        <td md-cell></td>
+                        <td md-cell></td>
+                        <td md-cell>1st</td>
+                        <td md-cell>2nd</td>
+                        <td md-cell>3rd</td>
+                        <td md-cell>4th</td>
+                        <td md-cell></td>
+                        <td md-cell></td>
+                        <td md-cell></td>
+                    </tr>
+                    <tr md-row md-select="data" ng-repeat="d in data.data|orderBy: query.order">
+                        <td md-cell>{{d.id}}</td>
+                        <td md-cell ng-if="!d.text">
+                            {{d.name}}
+                        </td>
+                        <td md-cell ng-if="d.text">
+                            <input type="text" class="form-control" ng-model="d.name" ng-blur="saveName(d)" />
+                        </td>
+                        <td md-cell>{{d.sections[0]}}</td>
+                        <td md-cell>{{d.sections[1]}}</td>
+                        <td md-cell>{{d.sections[2]}}</td>
+                        <td md-cell>{{d.sections[3]}}</td>
+                        <td md-cell>{{d.date}}</td>
+                        <td md-cell>{{d.status}}</td>
+                        <td md-cell><button class="btn btn-danger" ng-click="deleteRow($index)"><span class="glyphicon glyphicon-remove"></span></button></td>
+
+
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </md-table-container>
+    </div>
+</div>

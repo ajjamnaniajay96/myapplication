@@ -1,0 +1,55 @@
+    .dashboard {
+        font-size: 1.2em;
+    }
+    
+    .alert {
+        color: crimson;
+    }
+    
+    .login-page {
+        margin: auto!important;
+    }
+    
+    .headerBar {
+        padding: 5px 0px 5px 0px;
+        background-color: #3fadd5;
+        border-radius: 0px!important;
+        box-shadow: 4px 2px 10px 1px #33333382
+    }
+    
+    .whiteColor {
+        color: #fff;
+    }
+    
+    .blueColor {
+        color: #3faad5;
+    }
+    
+    .listBar li {
+        padding: 10px 0px 0px 10px;
+        color: white!important;
+        font-size: 1.2em!important;
+    }
+    
+    .listBar li>a {
+        color: white!important;
+        font-size: 1.2em!important;
+    }
+    
+    .listBar li>a active {
+        font-size: 1.3em!important;
+        font-weight: 600!important;
+        border-bottom: 2px solid #fff!important;
+    }
+    
+    #myNav.nav>li>a:focus,
+    #myNav.nav>li>a:hover {
+        background-color: transparent!important;
+        font-size: 1.3em!important;
+        font-weight: 600!important;
+        border-bottom: 2px solid #fff!important;
+    }
+    
+    .leftMar {
+        margin-left: 15px;
+    }
