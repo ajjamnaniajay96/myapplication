@@ -1,12 +1,15 @@
 angular.module('tempApp').controller('membersCtrl', ['$scope', 'dataService', function ($scope, dataService) {
     $scope.message = "Members";
-    $scope.filter="";
+    $scope.filter = "";
     $scope.selected = [];
     dataService.getData().then(function (result) {
         $scope.data = result.data;
+        for (var i = 0; i < $scope.data.data.length; i++) {
+            $scope.data.data[i].i = i;
+        }
         $scope.dataCopy = angular.copy(result.data);
     });
-     $scope.errorMessage="";
+    $scope.errorMessage = "";
     $scope.addRow = function () {
         $scope.data.data.push({
             id: "SR" + parseInt(Math.random() * 10000),
@@ -17,6 +20,7 @@ angular.module('tempApp').controller('membersCtrl', ['$scope', 'dataService', fu
             sections: ['0', '0', '0', '0']
 
         });
+
 
     }
     $scope.query = {
@@ -47,27 +51,33 @@ angular.module('tempApp').controller('membersCtrl', ['$scope', 'dataService', fu
         filterFunction();
     }
     $scope.deleteRow = function (i) {
-        $scope.data.data.splice(i, 1);
-        $scope.data.dataCopy.splice(i, 1);
+        remove(i);
+        $scope.dataCopy = angular.copy($scope.data);
+    }
+
+    function remove(item) {
+        $scope.data.data = $scope.data.data.filter(function (e) {
+            return e.name !== item.name
+        })
     }
 
     function filterFunction() {
-        $scope.errorMessage="";
+        $scope.errorMessage = "";
         var temp = false;
         $scope.data.data = [];
         for (var i = 0; i < $scope.dataCopy.data.length; i++) {
-            if ($scope.dataCopy.data[i].id.toLowerCase().indexOf($scope.filter.toLowerCase()) >-1 || $scope.dataCopy.data[i].name.toLowerCase().indexOf ($scope.filter.toLowerCase())>-1) {
+            if ($scope.dataCopy.data[i].id.toLowerCase().indexOf($scope.filter.toLowerCase()) > -1 || $scope.dataCopy.data[i].name.toLowerCase().indexOf($scope.filter.toLowerCase()) > -1) {
                 $scope.data.data.push($scope.dataCopy.data[i]);
                 temp = true;
             }
         }
-        if (!temp && $scope.filter==="") {
+        if (!temp && $scope.filter === "") {
             $scope.data = angular.copy($scope.dataCopy);
         }
-        if(!temp){
-            $scope.errorMessage ="No result found for the given search option."
+        if (!temp) {
+            $scope.errorMessage = "No result found for the given search option."
         }
-        
+
     }
 
             }])
