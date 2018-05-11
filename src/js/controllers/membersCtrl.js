@@ -12,15 +12,15 @@ angular.module('tempApp').controller('membersCtrl', ['$scope', 'dataService', fu
     $scope.errorMessage = "";
     $scope.addRow = function () {
         $scope.data.data.push({
-            id: "SR" + parseInt(Math.random() * 10000),
+            id: "",
             name: "",
+            i: $scope.data.data.length,
             text: true,
-            status: "active",
+            status: "",
             date: getDate(),
-            sections: ['0', '0', '0', '0']
+            sections: ['', '', '', '']
 
         });
-
 
     }
     $scope.query = {

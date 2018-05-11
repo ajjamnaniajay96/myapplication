@@ -3,7 +3,7 @@
   <div class="col-md-12 col-sm-12 col-lg-12">
    <header-main type="type"></header-main>
     <div class="col-md-12 col-sm-12 well-md text-center ">
-        <h2> <strong>LOGIN</strong>&nbsp;<span class="glyphicon glyphicon-home blueColor"></span></h2></div>
+        <h2> <img src ="/images/login.png" width:="70px" height="70px"></h2></div>
     <div class="col-md-12 col-sm-12">
         <div class="col-md-4 col-sm-4"></div>
          <div class="col-md-4 col-sm-4 login-page">
@@ -20,12 +20,14 @@
                             <label class="pull-left"><strong>Password</strong></label>
                             <input id="pass" type="password" class="form-control" ng-model="password" /> </div>
                     </div>
-                    <button type="submit" ng-click="loginMessage()" class="btn btn-lg btn-primary" ng-disabled="!lg.$dirty || lg.$invalid">Login </button>
-           
+                     <div ng-if="loader" class="col-md-12 col-sm-12 text-center"><img src ="/images/loader.gif" width:="60px" height="60px" ></div>
+                    <button type="submit"  ng-if="!loader" ng-click="loginMessage()" class="btn btn-lg btn-primary" ng-disabled="!lg.$dirty || lg.$invalid">Login </button>
             </form>
         </div>
-          <div class="col-md-4 col-sm-4"></div>
+            
+         
     </div>
+     <div class="col-md-4 col-sm-4"></div>
     </div>
    
    
