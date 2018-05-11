@@ -10,7 +10,7 @@
             <input type="button" type="text" class="btn btn-success" value="Create A New Member" ng-click="addRow()" /> </div>
     </div>
     <div class="col-md-12 col-sm-12">
-       <h4 class="text-center alert">{{errorMessage}}</h4>
+       <h4>{{errorMessage}}</h4>
         <md-table-container ng-hide="errorMessage">
             <table md-table ng-model="selected">
                 <thead md-head md-order="query.order">
@@ -51,7 +51,7 @@
                         <td md-cell>{{d.sections[3]}}</td>
                         <td md-cell>{{d.date}}</td>
                         <td md-cell>{{d.status}}</td>
-                        <td md-cell><button class="btn btn-danger" ng-click="deleteRow($index)"><span class="glyphicon glyphicon-remove"></span></button></td>
+                        <td md-cell><button class="btn btn-danger" ng-click="deleteRow(d)"><span class="glyphicon glyphicon-remove"></span></button></td>
 
 
                     </tr>
