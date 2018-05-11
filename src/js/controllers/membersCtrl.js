@@ -1,10 +1,12 @@
 angular.module('tempApp').controller('membersCtrl', ['$scope', 'dataService', function ($scope, dataService) {
     $scope.message = "Members";
+    $scope.filter="";
     $scope.selected = [];
     dataService.getData().then(function (result) {
         $scope.data = result.data;
         $scope.dataCopy = angular.copy(result.data);
     });
+     $scope.errorMessage="";
     $scope.addRow = function () {
         $scope.data.data.push({
             id: "SR" + parseInt(Math.random() * 10000),
@@ -50,17 +52,22 @@ angular.module('tempApp').controller('membersCtrl', ['$scope', 'dataService', fu
     }
 
     function filterFunction() {
+        $scope.errorMessage="";
         var temp = false;
         $scope.data.data = [];
         for (var i = 0; i < $scope.dataCopy.data.length; i++) {
-            if ($scope.dataCopy.data[i].id.toLowerCase() === $scope.filter.toLowerCase() || $scope.dataCopy.data[i].name.toLowerCase() === $scope.filter.toLowerCase()) {
+            if ($scope.dataCopy.data[i].id.toLowerCase().indexOf($scope.filter.toLowerCase()) >-1 || $scope.dataCopy.data[i].name.toLowerCase().indexOf ($scope.filter.toLowerCase())>-1) {
                 $scope.data.data.push($scope.dataCopy.data[i]);
                 temp = true;
             }
         }
-        if (!temp) {
+        if (!temp && $scope.filter==="") {
             $scope.data = angular.copy($scope.dataCopy);
         }
+        if(!temp){
+            $scope.errorMessage ="No result found for the given search option."
+        }
+        
     }
 
             }])
