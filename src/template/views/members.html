@@ -10,7 +10,8 @@
             <input type="button" type="text" class="btn btn-success" value="Create A New Member" ng-click="addRow()" /> </div>
     </div>
     <div class="col-md-12 col-sm-12">
-        <md-table-container>
+       <h4 class="text-center alert">{{errorMessage}}</h4>
+        <md-table-container ng-hide="errorMessage">
             <table md-table ng-model="selected">
                 <thead md-head md-order="query.order">
                     <tr md-row>
