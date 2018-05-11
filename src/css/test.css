@@ -36,16 +36,13 @@
         font-size: 1.2em!important;
     }
     
-    .listBar li>a active {
-        font-size: 1.3em!important;
+    .active {
         font-weight: 600!important;
         border-bottom: 2px solid #fff!important;
     }
-    
     #myNav.nav>li>a:focus,
     #myNav.nav>li>a:hover {
         background-color: transparent!important;
-        font-size: 1.3em!important;
         font-weight: 600!important;
         border-bottom: 2px solid #fff!important;
     }
