@@ -1,5 +1,5 @@
 <div class="col-md-12 col-sm-12">
-    <header-main></header-main>
+    <header-main type="message"></header-main>
     <div class="col-md-12 col-sm-12">
         <div class="pull-left">
 
@@ -10,7 +10,7 @@
             <input type="button" type="text" class="btn btn-success" value="Create A New Member" ng-click="addRow()" /> </div>
     </div>
     <div class="col-md-12 col-sm-12">
-       <h4>{{errorMessage}}</h4>
+       <h4 class="text-center alert">{{errorMessage}}</h4>
         <md-table-container ng-hide="errorMessage">
             <table md-table ng-model="selected">
                 <thead md-head md-order="query.order">
